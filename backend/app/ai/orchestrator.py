@@ -182,7 +182,7 @@ def handle_user_chat(db: Session, user_id: int, message: str) -> Dict[str, Any]:
 
     except Exception as e:
         res = _fallback_router(db, user_id, message)
-        res["reply"] = f"[{str(e)[:45]} | Offline Fallback] " + res["reply"]
+        res["reply"] = res["reply"]
         return res
 
 def _fallback_router(db: Session, user_id: int, message: str) -> Dict[str, Any]:
